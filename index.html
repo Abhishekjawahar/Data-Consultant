@@ -597,7 +597,7 @@ textarea::placeholder { color: var(--ink-faint); }
       </div>
       <div class="header-advisor">
         <div>
-          <div class="advisor-name">Alex Morgan</div>
+          <div class="advisor-name">AJ</div>
           <div class="advisor-title">Principal Consultant</div>
         </div>
         <div class="advisor-avatar">
@@ -684,7 +684,7 @@ let isThinking = false;
 // Generate session ID
 document.getElementById('sessionId').textContent = 'DS-' + Math.random().toString(36).substr(2,6).toUpperCase();
 
-const SYSTEM_PROMPT = `You are Alex Morgan, a Principal Consultant at a top-tier data strategy consultancy (think BCG Gamma, McKinsey QuantumBlack). You lead a team of specialists — data engineers, data scientists, BI analysts, statisticians, ML engineers, market researchers, and cloud architects — but the client never sees them. You speak directly as the single expert voice.
+const SYSTEM_PROMPT = `You are AJ, a Principal Consultant at a top-tier data strategy consultancy (think BCG Gamma, McKinsey QuantumBlack). You lead a team of specialists — data engineers, data scientists, BI analysts, statisticians, ML engineers, market researchers, and cloud architects — but the client never sees them. You speak directly as the single expert voice.
 
 Your communication style:
 - Authoritative, precise, and structured — like a senior McKinsey/BCG consultant
@@ -780,7 +780,7 @@ function addThinking() {
   el.innerHTML = `
     <div class="msg-sender-line" style="margin-bottom:10px;">
       <div class="sender-avatar-sm">AM</div>
-      <span class="sender-name-sm">Alex Morgan</span>
+      <span class="sender-name-sm">AJ</span>
     </div>
     <div class="thinking-inner">
       <div class="thinking-dots"><span></span><span></span><span></span></div>
@@ -802,7 +802,7 @@ function addAdvisorMessage(text) {
   el.innerHTML = `
     <div class="msg-sender-line">
       <div class="sender-avatar-sm">AM</div>
-      <span class="sender-name-sm">Alex Morgan &nbsp;·&nbsp; Principal Consultant</span>
+      <span class="sender-name-sm">AJ &nbsp;·&nbsp; Principal Consultant</span>
       <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--ink-faint);">${getTime()}</span>
     </div>
     <div class="msg-content">${formatMarkdown(text)}</div>
