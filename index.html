@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meridian Advisory</title>
+<title>Eigenflow Advisory</title>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -474,10 +474,10 @@ textarea::placeholder { color: var(--ink-faint); }
 <body>
 
 <header>
-  <div class="wordmark">Meridian <span>Advisory</span></div>
+  <div class="wordmark">Eigenflow <span>Advisory</span></div>
   <div class="consultant-pill">
     <div class="status-dot"></div>
-    Alex Morgan · Senior Advisor
+    AJ · Senior Advisor
   </div>
 </header>
 
@@ -529,7 +529,7 @@ textarea::placeholder { color: var(--ink-faint); }
         </div>
         <h2>Good to have you here.<br>What's on your agenda?</h2>
         <p class="welcome-intro">
-          I'm Alex Morgan, your senior advisor at Meridian. I draw on a dedicated bench of data and analytics specialists to give you <em>one coherent, expert perspective</em> on your most complex challenges — from strategy to execution.
+          I'm AJ, your senior advisor at Eigenflow. I draw on a dedicated bench of data and analytics specialists to give you <em>one coherent, expert perspective</em> on your most complex challenges — from strategy to execution.
         </p>
         <div class="capability-grid">
           <div class="cap-card" onclick="qp('Give me a brief strategic overview of how to reduce customer churn using data.')">
@@ -581,7 +581,7 @@ let busy = false;
 
 const modeLabels = { brief:'Brief', roadmap:'Roadmap', deep:'Deep Dive', tools:'Methods & Tools' };
 
-const SYSTEM = `You are Alex Morgan, a senior business and data advisor at Meridian Advisory. You have a dedicated team of specialists working behind the scenes — data engineers, data scientists, BI analysts, data analysts, AI/ML engineers, statisticians, market researchers, data governance experts, and cloud/MLOps engineers. The client never sees these specialists. You synthesize their collective expertise into a single authoritative voice.
+const SYSTEM = `You are AJ, a senior business and data advisor at Eigenflow Advisory. You have a dedicated team of specialists working behind the scenes — data engineers, data scientists, BI analysts, data analysts, AI/ML engineers, statisticians, market researchers, data governance experts, and cloud/MLOps engineers. The client never sees these specialists. You synthesize their collective expertise into a single authoritative voice.
 
 Speak like a trusted senior advisor: direct, confident, precise. No filler phrases. No empty affirmations.
 
@@ -656,7 +656,7 @@ function addThinking() {
   row.className = 'msg-row assistant thinking-row';
   row.id = 'thinking';
   row.innerHTML = `
-    <div class="msg-meta"><span>Alex Morgan · ${getTime()}</span></div>
+    <div class="msg-meta"><span>AJ · ${getTime()}</span></div>
     <div class="msg-bubble">
       <span class="thinking-label">Analysing</span>
       <div class="thinking-bar"><span></span><span></span><span></span><span></span><span></span></div>
@@ -676,7 +676,7 @@ function addAssistantMsg(text) {
   const row = document.createElement('div');
   row.className = 'msg-row assistant';
   row.innerHTML = `
-    <div class="msg-meta"><span>Alex Morgan · ${getTime()}</span></div>
+    <div class="msg-meta"><span>AJ · ${getTime()}</span></div>
     <div class="msg-bubble">${renderMd(text)}</div>
   `;
   t.appendChild(row);
@@ -765,7 +765,7 @@ function newConversation() {
       <div class="welcome-rule"><div class="welcome-monogram">AM</div></div>
       <h2>Good to have you here.<br>What's on your agenda?</h2>
       <p class="welcome-intro">
-        I'm Alex Morgan, your senior advisor at Meridian. I draw on a dedicated bench of data and analytics specialists to give you <em>one coherent, expert perspective</em> on your most complex challenges — from strategy to execution.
+        I'm AJ, your senior advisor at Eigenflow. I draw on a dedicated bench of data and analytics specialists to give you <em>one coherent, expert perspective</em> on your most complex challenges — from strategy to execution.
       </p>
       <div class="capability-grid">
         <div class="cap-card" onclick="qp('Give me a brief strategic overview of how to reduce customer churn using data.')">
