@@ -3,749 +3,629 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DataMind — Strategic Advisory</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Meridian Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --ink: #0f1117;
-  --ink-soft: #2c3140;
-  --ink-muted: #6b7280;
-  --ink-faint: #9ca3af;
-  --rule: #e2e4e9;
-  --rule-light: #f0f1f4;
-  --page: #fafafa;
-  --white: #ffffff;
-  --accent: #003087;
-  --accent-mid: #0046c0;
-  --accent-light: #e8eef8;
-  --gold: #c8922a;
-  --success: #1a7a4a;
+  --ink: #1a1a1a;
+  --ink-light: #4a4a4a;
+  --ink-faint: #8a8a8a;
+  --rule: #e0dbd4;
+  --rule-light: #ede9e4;
+  --bg: #f5f2ee;
+  --bg-white: #faf9f7;
+  --accent: #3a1a5c;
+--gold: #c8a84b;
+--bg: #f3f0f7;
+--rule: #ddd4ea;
+  --accent-warm: #8b3a2a;
+  --gold: #b8963e;
+  --surface: #ffffff;
 }
 
-html, body {
-  height: 100%;
-  background: var(--page);
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
   color: var(--ink);
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── LAYOUT ── */
-.shell {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-  max-width: 900px;
-  margin: 0 auto;
-  background: var(--white);
-  border-left: 1px solid var(--rule);
-  border-right: 1px solid var(--rule);
+  overflow: hidden;
 }
 
-/* ── HEADER ── */
 header {
-  border-bottom: 2px solid var(--ink);
-  padding: 0 40px;
+  background: var(--accent);
+  color: #fff;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
-  background: var(--white);
-}
-
-.header-brand {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 0;
-}
-
-.brand-mark {
-  width: 6px;
-  height: 36px;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.brand-name {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.2px;
-}
-
-.brand-sub {
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-
-.header-meta {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.header-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-  padding: 20px 0;
-  border-left: 1px solid var(--rule);
-  padding-left: 32px;
-}
-
-.header-stat-label {
-  font-size: 0.6rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  font-weight: 500;
-}
-
-.header-stat-val {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--accent);
-  font-weight: 500;
-}
-
-.header-advisor {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 0;
-  border-left: 1px solid var(--rule);
-  padding-left: 32px;
-}
-
-.advisor-avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 0.85rem;
-  font-weight: 700;
+  padding: 0 40px;
+  height: 56px;
   flex-shrink: 0;
   position: relative;
 }
 
-.advisor-online {
+header::after {
+  content: '';
   position: absolute;
-  bottom: 1px;
-  right: 1px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--success);
-  border: 2px solid var(--white);
-}
-
-.advisor-info {}
-.advisor-name {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--ink);
-  line-height: 1.2;
-}
-.advisor-title {
-  font-size: 0.65rem;
-  color: var(--ink-muted);
-  letter-spacing: 0.3px;
-}
-
-/* ── MESSAGES ── */
-.messages {
-  overflow-y: auto;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  scroll-behavior: smooth;
-}
-
-.messages::-webkit-scrollbar { width: 4px; }
-.messages::-webkit-scrollbar-track { background: transparent; }
-.messages::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
-
-/* Welcome State */
-.welcome {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 60px 40px 40px;
-  flex: 1;
-  gap: 0;
-  animation: fadeUp 0.5s ease both;
-}
-
-.welcome-eyebrow {
-  font-size: 0.62rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-
-.welcome-heading {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1.9rem;
-  font-weight: 400;
-  line-height: 1.25;
-  color: var(--ink);
-  max-width: 520px;
-  margin-bottom: 16px;
-}
-
-.welcome-heading em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.welcome-body {
-  font-size: 0.875rem;
-  color: var(--ink-soft);
-  max-width: 460px;
-  line-height: 1.7;
-  margin-bottom: 40px;
-}
-
-.welcome-divider {
-  width: 40px;
+  bottom: 0; left: 0; right: 0;
   height: 2px;
-  background: var(--accent);
-  margin-bottom: 32px;
+  background: var(--gold);
 }
 
-.welcome-prompts-label {
-  font-size: 0.6rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  margin-bottom: 12px;
+.wordmark {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.25rem;
   font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.wordmark span { color: var(--gold); font-style: italic; }
+
+.consultant-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.prompt-grid {
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px #4ade80;
+  animation: breathe 3s ease-in-out infinite;
+}
+@keyframes breathe { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+.layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* RAIL */
+.rail {
+  width: 220px;
+  background: var(--bg-white);
+  border-right: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  width: 100%;
-  max-width: 560px;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+.rail::-webkit-scrollbar { width: 0; }
+
+.rail-section {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--rule-light);
 }
 
-.prompt-chip {
+.rail-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+}
+
+.mode-list { display: flex; flex-direction: column; gap: 2px; }
+
+.mode-item {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px 16px;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
+  flex-direction: column;
+  padding: 9px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.12s;
+  border: none;
   background: transparent;
-  color: var(--ink-soft);
+  color: var(--ink-light);
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.8rem;
+  text-align: left;
+  width: 100%;
+}
+.mode-item:hover { background: var(--rule-light); color: var(--ink); }
+.mode-item.active { background: var(--accent); color: #fff; }
+.mode-item.active .mode-desc { opacity: 0.65; }
+
+.mode-label { font-weight: 500; font-size: 0.78rem; }
+.mode-desc { font-size: 0.68rem; opacity: 0.55; margin-top: 2px; line-height: 1.3; }
+
+.prompt-list { display: flex; flex-direction: column; gap: 5px; }
+
+.prompt-btn {
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 8px 10px;
   text-align: left;
   cursor: pointer;
-  transition: all 0.15s;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.71rem;
+  color: var(--ink-light);
   line-height: 1.4;
+  transition: all 0.12s;
 }
+.prompt-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(26,58,92,0.04); }
 
-.prompt-chip:hover {
-  background: var(--accent-light);
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.prompt-chip-num {
+.new-btn {
+  margin: 18px 20px;
+  padding: 8px 14px;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink-faint);
-  margin-top: 1px;
-  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.12s;
+  text-align: center;
 }
+.new-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-/* Message rows */
-.msg-row {
+/* CHAT */
+.chat-panel {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 28px 40px;
-  border-bottom: 1px solid var(--rule-light);
-  animation: fadeUp 0.25s ease both;
-  gap: 10px;
+  overflow: hidden;
+  background: var(--bg);
 }
 
-.msg-row.user-row {
-  background: var(--rule-light);
+.transcript {
+  flex: 1;
+  overflow-y: auto;
+  padding: 44px 0 24px;
+}
+.transcript::-webkit-scrollbar { width: 4px; }
+.transcript::-webkit-scrollbar-track { background: transparent; }
+.transcript::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
+
+/* WELCOME */
+.welcome {
+  max-width: 580px;
+  margin: 32px auto 0;
+  padding: 0 24px;
+  animation: fadeUp 0.5s ease;
 }
 
-.msg-row.advisor-row {
-  background: var(--white);
-}
-
-.msg-sender-line {
+.welcome-rule {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.welcome-rule::before, .welcome-rule::after {
+  content: ''; flex: 1; height: 1px; background: var(--rule);
 }
 
-.sender-avatar-sm {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
+.welcome-monogram {
+  width: 46px; height: 46px;
   background: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 0.65rem;
-  font-weight: 700;
-  font-family: 'Libre Baskerville', serif;
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.3rem;
+  color: #fff;
   flex-shrink: 0;
 }
 
-.sender-avatar-sm.user-av {
-  background: var(--ink-soft);
+.welcome h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 12px;
 }
 
-.sender-name-sm {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--ink-muted);
-  letter-spacing: 0.3px;
+.welcome-intro {
+  font-size: 0.875rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.welcome-intro em { color: var(--accent); font-style: normal; font-weight: 500; }
+
+.capability-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
-.sender-mode-tag {
-  margin-left: auto;
+.cap-card {
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 13px 15px;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: var(--surface);
+}
+.cap-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(26,58,92,0.08);
+}
+.cap-title { font-size: 0.78rem; font-weight: 500; margin-bottom: 4px; }
+.cap-desc { font-size: 0.68rem; color: var(--ink-faint); line-height: 1.4; }
+
+/* MESSAGES */
+.msg-row {
+  max-width: 680px;
+  margin: 0 auto 24px;
+  padding: 0 24px;
+  animation: fadeUp 0.25s ease;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+.msg-row.user { text-align: right; }
+
+.msg-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.8px;
-  color: var(--accent);
-  background: var(--accent-light);
-  padding: 2px 7px;
-  border-radius: 1px;
+  font-size: 0.61rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
+.msg-row.user .msg-meta { justify-content: flex-end; }
 
-.msg-content {
+.msg-mode-tag {
+  padding: 1px 6px;
+  background: var(--rule-light);
+  border-radius: 2px;
+  color: var(--accent);
+}
+
+.msg-row.user .msg-bubble {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 480px;
+  text-align: left;
+}
+
+.msg-row.assistant .msg-bubble {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 20px 24px;
   font-size: 0.875rem;
   line-height: 1.75;
-  color: var(--ink-soft);
-  padding-left: 36px;
-}
-
-.msg-content h3 {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1rem;
-  font-weight: 700;
   color: var(--ink);
-  margin: 20px 0 8px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--rule);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
-.msg-content h3:first-child { margin-top: 0; }
-
-.msg-content h4 {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
+/* Bubble rich text */
+.msg-bubble h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.15rem; font-weight: 500;
   color: var(--accent);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule-light);
+}
+.msg-bubble h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem; font-weight: 500;
+  color: var(--ink);
   margin: 16px 0 6px;
 }
-
-.msg-content h4:first-child { margin-top: 0; }
-
-.msg-content p { margin-bottom: 10px; }
-.msg-content p:last-child { margin-bottom: 0; }
-
-.msg-content ul, .msg-content ol {
-  padding-left: 20px;
-  margin: 8px 0 12px;
+.msg-bubble h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 14px 0 6px;
 }
-
-.msg-content li { margin-bottom: 5px; }
-
-.msg-content code {
+.msg-bubble p { margin-bottom: 10px; }
+.msg-bubble p:last-child { margin-bottom: 0; }
+.msg-bubble ul, .msg-bubble ol { padding-left: 18px; margin: 8px 0 10px; }
+.msg-bubble li { margin-bottom: 4px; line-height: 1.6; }
+.msg-bubble strong { color: var(--accent); font-weight: 500; }
+.msg-bubble em { color: var(--ink-light); }
+.msg-bubble code {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.8em;
   background: var(--rule-light);
-  color: var(--accent);
   padding: 1px 5px;
   border-radius: 2px;
+  color: var(--accent-warm);
 }
-
-.msg-content strong { color: var(--ink); font-weight: 600; }
-
-.msg-content .next-steps {
-  margin-top: 16px;
+.msg-bubble pre {
+  background: #1e1e1e;
+  color: #d4d0cb;
   padding: 14px 16px;
-  border-left: 3px solid var(--accent);
-  background: var(--accent-light);
-  border-radius: 0 2px 2px 0;
-  font-size: 0.83rem;
-}
-
-/* Thinking */
-.thinking-row {
-  padding: 24px 40px;
-  border-bottom: 1px solid var(--rule-light);
-  background: var(--white);
-  animation: fadeUp 0.25s ease;
-}
-
-.thinking-inner {
-  padding-left: 36px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--ink-muted);
+  border-radius: 3px;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.78rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  margin: 10px 0;
 }
+.msg-bubble hr { border: none; border-top: 1px solid var(--rule); margin: 14px 0; }
 
-.thinking-dots {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-
-.thinking-dots span {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  animation: blink 1.4s infinite;
-  opacity: 0.4;
-}
-.thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
-.thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes blink { 0%,60%,100%{opacity:0.3} 30%{opacity:1} }
-
-/* ── MODE BAR ── */
-.mode-bar {
+/* THINKING */
+.thinking-row .msg-bubble {
   display: flex;
   align-items: center;
-  gap: 0;
-  padding: 0 40px;
-  border-bottom: 1px solid var(--rule);
-  background: var(--white);
-  flex-shrink: 0;
+  gap: 14px;
+  padding: 15px 20px;
 }
-
-.mode-tab {
-  font-size: 0.65rem;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 11px 18px;
-  border: none;
-  background: transparent;
-  color: var(--ink-muted);
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-  transition: all 0.15s;
-  font-family: 'IBM Plex Sans', sans-serif;
-}
-
-.mode-tab:hover { color: var(--ink); }
-.mode-tab.active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-  font-weight: 600;
-}
-
-.mode-sep {
-  width: 1px;
-  height: 14px;
-  background: var(--rule);
-  margin: 0 4px;
-}
-
-.mode-bar-label {
-  font-size: 0.6rem;
-  letter-spacing: 1.5px;
+.thinking-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-faint);
-  margin-right: 12px;
+}
+.thinking-bar { display: flex; gap: 3px; }
+.thinking-bar span {
+  width: 3px; height: 13px;
+  background: var(--accent);
+  border-radius: 2px;
+  opacity: 0.2;
+  animation: bar 1.2s ease-in-out infinite;
+}
+.thinking-bar span:nth-child(2){animation-delay:.15s}
+.thinking-bar span:nth-child(3){animation-delay:.3s}
+.thinking-bar span:nth-child(4){animation-delay:.45s}
+.thinking-bar span:nth-child(5){animation-delay:.6s}
+@keyframes bar{0%,100%{opacity:.15;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* INPUT */
+.input-zone {
+  border-top: 1px solid var(--rule);
+  background: var(--surface);
+  padding: 14px 24px 18px;
   flex-shrink: 0;
 }
 
-/* ── INPUT ── */
-.input-area {
-  border-top: 1px solid var(--rule);
-  background: var(--white);
-  padding: 20px 40px 24px;
-  flex-shrink: 0;
-}
+.input-inner { max-width: 680px; margin: 0 auto; }
 
 .input-box {
   display: flex;
   align-items: flex-end;
-  gap: 12px;
+  gap: 0;
   border: 1px solid var(--rule);
-  border-radius: 2px;
-  background: var(--white);
-  transition: border-color 0.15s;
-  padding: 12px 14px;
+  border-radius: 3px;
+  background: var(--bg-white);
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-
 .input-box:focus-within {
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(26,58,92,0.07);
 }
 
 textarea {
   flex: 1;
+  background: transparent;
   border: none;
   outline: none;
-  resize: none;
+  padding: 13px 14px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.875rem;
   color: var(--ink);
-  background: transparent;
+  resize: none;
+  min-height: 50px;
+  max-height: 150px;
   line-height: 1.6;
-  min-height: 48px;
-  max-height: 160px;
 }
-
 textarea::placeholder { color: var(--ink-faint); }
 
 .send-btn {
-  width: 38px;
-  height: 38px;
+  width: 38px; height: 38px;
+  margin: 6px 6px 6px 0;
   background: var(--accent);
   border: none;
-  border-radius: 1px;
-  color: white;
-  font-size: 14px;
+  border-radius: 2px;
+  color: #fff;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.12s;
   flex-shrink: 0;
-  transition: background 0.15s;
 }
-
-.send-btn:hover { background: var(--accent-mid); }
+.send-btn:hover { background: #152e4a; }
 .send-btn:disabled { background: var(--rule); cursor: not-allowed; }
+.send-btn svg { width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round; }
 
 .input-footer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
-  padding: 0 2px;
+  align-items: center;
+  margin-top: 7px;
+  padding: 0 1px;
 }
-
 .input-hint {
-  font-size: 0.65rem;
-  color: var(--ink-faint);
   font-family: 'IBM Plex Mono', monospace;
-  letter-spacing: 0.3px;
-}
-
-.powered-by {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   color: var(--ink-faint);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.04em;
 }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+.active-mode-display {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 </style>
 </head>
 <body>
-<div class="shell">
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-brand">
-      <div class="brand-mark"></div>
-      <div class="brand-text">
-        <div class="brand-name">DataMind</div>
-        <div class="brand-sub">Strategic Data Advisory</div>
-      </div>
-    </div>
-    <div class="header-meta">
-      <div class="header-stat">
-        <div class="header-stat-label">Session</div>
-        <div class="header-stat-val" id="sessionId">—</div>
-      </div>
-      <div class="header-advisor">
-        <div>
-          <div class="advisor-name">AJ</div>
-          <div class="advisor-title">Principal Consultant</div>
-        </div>
-        <div class="advisor-avatar">
-          AM
-          <div class="advisor-online"></div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- MESSAGES -->
-  <div class="messages" id="messages">
-    <div class="welcome" id="welcome">
-      <div class="welcome-eyebrow">Strategic Data Advisory</div>
-      <h1 class="welcome-heading">
-        How can I help you<br>solve a <em>data challenge</em><br>today?
-      </h1>
-      <div class="welcome-divider"></div>
-      <p class="welcome-body">
-        Describe your business problem and I'll bring the right analytical frameworks, methodologies, and technology recommendations to the table — whether you need a quick directional view or a comprehensive execution roadmap.
-      </p>
-      <div class="welcome-prompts-label">Suggested starting points</div>
-      <div class="prompt-grid">
-        <button class="prompt-chip" onclick="quickPrompt('We have customer churn reaching 30% this quarter. How do we analyze and solve this?')">
-          <span class="prompt-chip-num">01</span>
-          Customer churn has reached 30% — what's the analytical path forward?
-        </button>
-        <button class="prompt-chip" onclick="quickPrompt('We want to build a real-time recommendation engine for our e-commerce platform.')">
-          <span class="prompt-chip-num">02</span>
-          Build a real-time recommendation engine for our e-commerce platform
-        </button>
-        <button class="prompt-chip" onclick="quickPrompt('Our data is siloed across 6 different systems. How do we build a unified data platform?')">
-          <span class="prompt-chip-num">03</span>
-          Data is siloed across 6 systems — unified platform strategy needed
-        </button>
-        <button class="prompt-chip" onclick="quickPrompt('We need to forecast next quarter sales with high accuracy using our historical data.')">
-          <span class="prompt-chip-num">04</span>
-          Forecast next quarter's sales with 85%+ accuracy
-        </button>
-        <button class="prompt-chip" onclick="quickPrompt('How do we implement a fraud detection system for our fintech application?')">
-          <span class="prompt-chip-num">05</span>
-          Implement a fraud detection system for our fintech app
-        </button>
-      </div>
-    </div>
+<header>
+  <div class="wordmark">Meridian <span>Advisory</span></div>
+  <div class="consultant-pill">
+    <div class="status-dot"></div>
+    Alex Morgan · Senior Advisor
   </div>
+</header>
 
-  <!-- MODE BAR -->
-  <div class="mode-bar">
-    <span class="mode-bar-label">Response</span>
-    <button class="mode-tab active" onclick="setMode('brief')" id="mode-brief">Brief</button>
-    <div class="mode-sep"></div>
-    <button class="mode-tab" onclick="setMode('roadmap')" id="mode-roadmap">Roadmap</button>
-    <div class="mode-sep"></div>
-    <button class="mode-tab" onclick="setMode('deep')" id="mode-deep">Deep Dive</button>
-    <div class="mode-sep"></div>
-    <button class="mode-tab" onclick="setMode('tools')" id="mode-tools">Tools & Methods</button>
-  </div>
+<div class="layout">
 
-  <!-- INPUT -->
-  <div class="input-area">
-    <div class="input-box">
-      <textarea id="userInput" placeholder="Describe your business or data challenge…" rows="2"
-        onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
-      <button class="send-btn" id="sendBtn" onclick="sendMessage()">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M1 7h12M8 2l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+  <aside class="rail">
+    <div class="rail-section">
+      <div class="rail-label">Response Mode</div>
+      <div class="mode-list">
+        <button class="mode-item active" onclick="setMode('brief')" id="mode-brief">
+          <div class="mode-label">Brief</div>
+          <div class="mode-desc">Concise executive summary</div>
+        </button>
+        <button class="mode-item" onclick="setMode('roadmap')" id="mode-roadmap">
+          <div class="mode-label">Roadmap</div>
+          <div class="mode-desc">Phased implementation plan</div>
+        </button>
+        <button class="mode-item" onclick="setMode('deep')" id="mode-deep">
+          <div class="mode-label">Deep Dive</div>
+          <div class="mode-desc">Technical depth & trade-offs</div>
+        </button>
+        <button class="mode-item" onclick="setMode('tools')" id="mode-tools">
+          <div class="mode-label">Methods & Tools</div>
+          <div class="mode-desc">Algorithms, frameworks, stack</div>
+        </button>
+      </div>
     </div>
-    <div class="input-footer">
-      <span class="input-hint">↵ send &nbsp;·&nbsp; ⇧↵ new line</span>
-      <span class="powered-by">Powered by Claude AI</span>
+
+    <div class="rail-section" style="flex:1">
+      <div class="rail-label">Common Engagements</div>
+      <div class="prompt-list">
+        <button class="prompt-btn" onclick="qp('We have 30% customer churn. What analytical approach and solutions do you recommend?')">Customer churn — 30% rate</button>
+        <button class="prompt-btn" onclick="qp('We want to build a real-time recommendation engine for our e-commerce platform.')">Recommendation engine</button>
+        <button class="prompt-btn" onclick="qp('Our data is siloed across 6 systems. How do we build a unified data platform?')">Unified data platform</button>
+        <button class="prompt-btn" onclick="qp('We need to forecast next quarter sales with 85%+ accuracy using historical data.')">Sales forecasting</button>
+        <button class="prompt-btn" onclick="qp('How do we implement a fraud detection system for our fintech application?')">Fraud detection</button>
+        <button class="prompt-btn" onclick="qp('Help us build a data-driven culture across our 500-person organization.')">Data culture strategy</button>
+      </div>
+    </div>
+
+    <button class="new-btn" onclick="newConversation()">↺ &nbsp;New Conversation</button>
+  </aside>
+
+  <div class="chat-panel">
+    <div class="transcript" id="transcript">
+      <div class="welcome" id="welcome">
+        <div class="welcome-rule">
+          <div class="welcome-monogram">AM</div>
+        </div>
+        <h2>Good to have you here.<br>What's on your agenda?</h2>
+        <p class="welcome-intro">
+          I'm Alex Morgan, your senior advisor at Meridian. I draw on a dedicated bench of data and analytics specialists to give you <em>one coherent, expert perspective</em> on your most complex challenges — from strategy to execution.
+        </p>
+        <div class="capability-grid">
+          <div class="cap-card" onclick="qp('Give me a brief strategic overview of how to reduce customer churn using data.')">
+            <div class="cap-title">Strategy Brief</div>
+            <div class="cap-desc">Executive-level recommendation with clear next actions</div>
+          </div>
+          <div class="cap-card" onclick="qp('Build me a detailed roadmap for creating a modern data platform for a 200-person company.')">
+            <div class="cap-title">Engagement Roadmap</div>
+            <div class="cap-desc">Phased plan with timelines, owners, and KPIs</div>
+          </div>
+          <div class="cap-card" onclick="qp('What ML algorithms and tools should I use for predictive maintenance in manufacturing?')">
+            <div class="cap-title">Methods & Algorithms</div>
+            <div class="cap-desc">Specific techniques, tools, and frameworks by use case</div>
+          </div>
+          <div class="cap-card" onclick="qp('Help me think through a data strategy for a healthcare startup focused on personalized care.')">
+            <div class="cap-title">Brainstorm Session</div>
+            <div class="cap-desc">Open-ended exploration of problems and opportunities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-zone">
+      <div class="input-inner">
+        <div class="input-box">
+          <textarea id="userInput"
+            placeholder="Describe your challenge or question…"
+            rows="2"
+            onkeydown="handleKey(event)"
+            oninput="autoResize(this)"></textarea>
+          <button class="send-btn" id="sendBtn" onclick="send()">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+        <div class="input-footer">
+          <span class="input-hint">Return to send · Shift+Return for new line</span>
+          <span class="active-mode-display" id="mode-display">Mode: Brief</span>
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
 
 <script>
-let currentMode = 'brief';
-let conversationHistory = [];
-let isThinking = false;
+let mode = 'brief';
+let history = [];
+let busy = false;
 
-// Generate session ID
-document.getElementById('sessionId').textContent = 'DS-' + Math.random().toString(36).substr(2,6).toUpperCase();
+const modeLabels = { brief:'Brief', roadmap:'Roadmap', deep:'Deep Dive', tools:'Methods & Tools' };
 
-const SYSTEM_PROMPT = `You are AJ, a Principal Consultant at a top-tier data strategy consultancy (think BCG Gamma, McKinsey QuantumBlack). You lead a team of specialists — data engineers, data scientists, BI analysts, statisticians, ML engineers, market researchers, and cloud architects — but the client never sees them. You speak directly as the single expert voice.
+const SYSTEM = `You are Alex Morgan, a senior business and data advisor at Meridian Advisory. You have a dedicated team of specialists working behind the scenes — data engineers, data scientists, BI analysts, data analysts, AI/ML engineers, statisticians, market researchers, data governance experts, and cloud/MLOps engineers. The client never sees these specialists. You synthesize their collective expertise into a single authoritative voice.
 
-Your communication style:
-- Authoritative, precise, and structured — like a senior McKinsey/BCG consultant
-- No filler phrases, no "great question!", no hollow enthusiasm
-- Use clear frameworks and named methodologies
-- Be specific: name actual algorithms, tools, platforms, and vendors when relevant
-- Write with economy. Every sentence earns its place.
+Speak like a trusted senior advisor: direct, confident, precise. No filler phrases. No empty affirmations.
 
-RESPONSE MODES (the user's message will be prefixed with a mode tag — obey it strictly):
+Respond based on the mode tag at the start of the user's message:
 
-[BRIEF]
-Deliver a sharp, executive-level response in 3–5 paragraphs. State the core diagnosis, recommend 1–2 primary approaches with rationale, and end with a clear recommendation. No headers needed. Prose only.
+[BRIEF] — 2–4 tight paragraphs. Lead with the core recommendation. Identify the top 2–3 methods or tools. Close with one specific next step. Minimal structure, mostly prose.
 
-[ROADMAP]
-Deliver a full structured advisory plan. Use the following structure:
-  ## Situation Assessment
-  ## Strategic Recommendation
-  ## Phase 1 / Phase 2 / Phase 3 (with timelines, owners, deliverables)
-  ## Key Metrics & KPIs
-  ## Recommended Technology Stack
-  ## Risks & Mitigations
-  ## Next Steps
-Be thorough. Executives expect depth here.
+[ROADMAP] — Structured engagement plan with clear phases (e.g., Phase 1: Discovery). Each phase includes: objective, key activities, recommended tools/tech, deliverables, timeline estimate, and success metrics. Use headers and concise bullets.
 
-[DEEP DIVE]
-Go technically deep. Explain specific algorithms, statistical methods, architectural patterns, and trade-offs. Include tool-level specifics, evaluation metrics, and methodology choices. Reference academic frameworks where relevant.
+[DEEP DIVE] — Technical precision. Cover architecture, algorithm trade-offs, data pipeline considerations, edge cases, failure modes, and implementation specifics. Use concrete examples. Code snippets where genuinely useful.
 
-[TOOLS & METHODS]
-Produce a structured breakdown organized into:
-  #### Analysis Methods
-  #### Algorithms & Models
-  #### Technology & Platforms
-  #### Visualization & Reporting
-  #### Governance & Operations
-For each item: name it, state the use case, and explain why it fits this problem.
+[METHODS & TOOLS] — Organized breakdown of recommended analytical approaches, algorithms, and tooling. Group by category (e.g., Statistical Methods, ML Models, Visualization Tools, Infrastructure). For each: name, why it fits this problem, when to prefer it.
 
-CRITICAL: Never reference your internal team or that you're delegating to specialists. Speak as one unified expert voice. Always be actionable. Close every response with a concrete recommended next step.`;
+Formatting rules:
+- Use **bold** for key terms and primary recommendations
+- Use ## and ### headers for roadmaps and structured responses only
+- Use bullet lists for enumerated items; prose for analysis and reasoning
+- Always close with a clearly labeled "Recommended Next Step" that is specific and actionable
+- Never use filler like "Great question!" or "Certainly!" — go straight to substance`;
 
-function setMode(mode) {
-  currentMode = mode;
-  document.querySelectorAll('.mode-tab').forEach(b => b.classList.remove('active'));
-  document.getElementById('mode-' + mode).classList.add('active');
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('.mode-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('mode-' + m).classList.add('active');
+  document.getElementById('mode-display').textContent = 'Mode: ' + modeLabels[m];
 }
 
 function autoResize(el) {
   el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+  el.style.height = Math.min(el.scrollHeight, 150) + 'px';
 }
 
 function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
 }
 
-function quickPrompt(text) {
+function qp(text) {
   document.getElementById('userInput').value = text;
   autoResize(document.getElementById('userInput'));
-  sendMessage();
+  send();
 }
 
 function getTime() {
-  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  return new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
 }
 
 function removeWelcome() {
@@ -753,42 +633,37 @@ function removeWelcome() {
   if (w) w.remove();
 }
 
-function getModeLabel() {
-  return { brief: 'Brief', roadmap: 'Roadmap', deep: 'Deep Dive', tools: 'Tools & Methods' }[currentMode];
-}
-
-function addUserMessage(text) {
+function addUserMsg(text) {
   removeWelcome();
-  const el = document.createElement('div');
-  el.className = 'msg-row user-row';
-  el.innerHTML = `
-    <div class="msg-sender-line">
-      <div class="sender-avatar-sm user-av">You</div>
-      <span class="sender-name-sm">Client</span>
-      <span class="sender-mode-tag">${getModeLabel()}</span>
+  const t = document.getElementById('transcript');
+  const modeTag = { brief:'BRIEF', roadmap:'ROADMAP', deep:'DEEP DIVE', tools:'METHODS & TOOLS' }[mode];
+  const row = document.createElement('div');
+  row.className = 'msg-row user';
+  row.innerHTML = `
+    <div class="msg-meta">
+      <span class="msg-mode-tag">${modeTag}</span>
+      <span>You · ${getTime()}</span>
     </div>
-    <div class="msg-content"><p>${escapeHtml(text)}</p></div>
+    <div class="msg-bubble">${esc(text)}</div>
   `;
-  document.getElementById('messages').appendChild(el);
-  scrollBottom();
+  t.appendChild(row);
+  t.scrollTop = t.scrollHeight;
 }
 
 function addThinking() {
-  const el = document.createElement('div');
-  el.className = 'thinking-row';
-  el.id = 'thinking';
-  el.innerHTML = `
-    <div class="msg-sender-line" style="margin-bottom:10px;">
-      <div class="sender-avatar-sm">AM</div>
-      <span class="sender-name-sm">AJ</span>
-    </div>
-    <div class="thinking-inner">
-      <div class="thinking-dots"><span></span><span></span><span></span></div>
-      <span>Analysing your problem…</span>
+  const t = document.getElementById('transcript');
+  const row = document.createElement('div');
+  row.className = 'msg-row assistant thinking-row';
+  row.id = 'thinking';
+  row.innerHTML = `
+    <div class="msg-meta"><span>Alex Morgan · ${getTime()}</span></div>
+    <div class="msg-bubble">
+      <span class="thinking-label">Analysing</span>
+      <div class="thinking-bar"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
   `;
-  document.getElementById('messages').appendChild(el);
-  scrollBottom();
+  t.appendChild(row);
+  t.scrollTop = t.scrollHeight;
 }
 
 function removeThinking() {
@@ -796,116 +671,121 @@ function removeThinking() {
   if (el) el.remove();
 }
 
-function addAdvisorMessage(text) {
-  const el = document.createElement('div');
-  el.className = 'msg-row advisor-row';
-  el.innerHTML = `
-    <div class="msg-sender-line">
-      <div class="sender-avatar-sm">AM</div>
-      <span class="sender-name-sm">AJ &nbsp;·&nbsp; Principal Consultant</span>
-      <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--ink-faint);">${getTime()}</span>
-    </div>
-    <div class="msg-content">${formatMarkdown(text)}</div>
+function addAssistantMsg(text) {
+  const t = document.getElementById('transcript');
+  const row = document.createElement('div');
+  row.className = 'msg-row assistant';
+  row.innerHTML = `
+    <div class="msg-meta"><span>Alex Morgan · ${getTime()}</span></div>
+    <div class="msg-bubble">${renderMd(text)}</div>
   `;
-  document.getElementById('messages').appendChild(el);
-  scrollBottom();
+  t.appendChild(row);
+  t.scrollTop = t.scrollHeight;
 }
 
-function scrollBottom() {
-  const m = document.getElementById('messages');
-  m.scrollTop = m.scrollHeight;
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
 }
 
-function escapeHtml(t) {
-  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
-
-function formatMarkdown(text) {
-  let html = text
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    // Headings
-    .replace(/^## (.+)$/gm, '<h3>$1</h3>')
-    .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    // Bold
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    // Code
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    // Lists
-    .replace(/^- (.+)$/gm, '<li>$1</li>')
-    .replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
-
-  // Wrap consecutive <li> in <ul>
-  html = html.replace(/(<li>[\s\S]*?<\/li>)(\n<li>[\s\S]*?<\/li>)*/g, m => `<ul>${m}</ul>`);
-
-  // Paragraphs for non-block lines
-  const lines = html.split('\n');
+function renderMd(text) {
+  text = text.replace(/```(\w*)\n?([\s\S]*?)```/g, (_,l,c) =>
+    `<pre><code>${c.replace(/</g,'&lt;').replace(/>/g,'&gt;').trim()}</code></pre>`);
+  text = text.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+  text = text.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  text = text.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  text = text.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  text = text.replace(/^---$/gm, '<hr>');
+  text = text.replace(/^[\-\*] (.+)$/gm, '<li>$1</li>');
+  text = text.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+  text = text.replace(/(<li>[\s\S]*?<\/li>)/g, m => `<ul>${m}</ul>`);
+  text = text.replace(/<\/ul>\s*<ul>/g, '');
+  const lines = text.split('\n');
   const out = [];
-  let i = 0;
-  while (i < lines.length) {
-    const line = lines[i].trim();
-    if (!line) { i++; continue; }
-    if (line.startsWith('<h') || line.startsWith('<ul') || line.startsWith('<li')) {
-      out.push(line);
-    } else {
-      // Collect consecutive non-block lines into a paragraph
-      let para = line;
-      while (i + 1 < lines.length) {
-        const next = lines[i+1].trim();
-        if (!next || next.startsWith('<h') || next.startsWith('<ul') || next.startsWith('<li')) break;
-        para += ' ' + next;
-        i++;
-      }
-      out.push(`<p>${para}</p>`);
-    }
-    i++;
+  let inP = false;
+  for (const line of lines) {
+    const tr = line.trim();
+    if (!tr) { if (inP) { out[out.length-1] += '</p>'; inP = false; } continue; }
+    const isBlock = /^<(h[2-4]|ul|ol|li|pre|hr)/.test(tr);
+    if (isBlock) { inP = false; out.push(tr); }
+    else { if (!inP) { out.push('<p>' + tr); inP = true; } else { out[out.length-1] += ' ' + tr; } }
   }
+  if (inP) out[out.length-1] += '</p>';
   return out.join('\n');
 }
 
-async function sendMessage() {
-  if (isThinking) return;
-  const input = document.getElementById('userInput');
-  const text = input.value.trim();
+async function send() {
+  if (busy) return;
+  const el = document.getElementById('userInput');
+  const text = el.value.trim();
   if (!text) return;
-
-  const modeTag = { brief: '[BRIEF]', roadmap: '[ROADMAP]', deep: '[DEEP DIVE]', tools: '[TOOLS & METHODS]' }[currentMode];
-
-  addUserMessage(text);
-  input.value = '';
-  input.style.height = 'auto';
-  conversationHistory.push({ role: 'user', content: `${modeTag} ${text}` });
-
-  isThinking = true;
+  const prefix = { brief:'[BRIEF]', roadmap:'[ROADMAP]', deep:'[DEEP DIVE]', tools:'[METHODS & TOOLS]' }[mode];
+  addUserMsg(text);
+  el.value = ''; el.style.height = 'auto';
+  history.push({ role:'user', content:`${prefix} ${text}` });
+  busy = true;
   document.getElementById('sendBtn').disabled = true;
   addThinking();
-
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT,
-        messages: conversationHistory
-      })
-    });
-
-    const data = await response.json();
-    const reply = data.content?.[0]?.text || 'I was unable to generate a response. Please try again.';
-
+    const GEMINI_KEY = 'AIzaSyDF6HtsIi9eqoFexNFfy3E7Un7RA5bCRYo';
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: SYSTEM }] },
+          contents: history.map(m => ({
+            role: m.role === 'assistant' ? 'model' : 'user',
+            parts: [{ text: m.content }]
+          }))
+        })
+      }
+    );
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Unable to process that request.';
     removeThinking();
-    addAdvisorMessage(reply);
-    conversationHistory.push({ role: 'assistant', content: reply });
-
-  } catch (err) {
+    addAssistantMsg(reply);
+    history.push({ role:'assistant', content:reply });
+  } catch(err) {
     removeThinking();
-    addAdvisorMessage(`**Error:** Unable to connect. Please check your connection and try again.\n\n\`${err.message}\``);
+    addAssistantMsg(`**Connection error.** Please try again.\n\n_${err.message}_`);
   }
-
-  isThinking = false;
+  busy = false;
   document.getElementById('sendBtn').disabled = false;
+}
+
+function newConversation() {
+  if (busy) return;
+  history = [];
+  document.getElementById('transcript').innerHTML = `
+    <div class="welcome" id="welcome">
+      <div class="welcome-rule"><div class="welcome-monogram">AM</div></div>
+      <h2>Good to have you here.<br>What's on your agenda?</h2>
+      <p class="welcome-intro">
+        I'm Alex Morgan, your senior advisor at Meridian. I draw on a dedicated bench of data and analytics specialists to give you <em>one coherent, expert perspective</em> on your most complex challenges — from strategy to execution.
+      </p>
+      <div class="capability-grid">
+        <div class="cap-card" onclick="qp('Give me a brief strategic overview of how to reduce customer churn using data.')">
+          <div class="cap-title">Strategy Brief</div>
+          <div class="cap-desc">Executive-level recommendation with clear next actions</div>
+        </div>
+        <div class="cap-card" onclick="qp('Build me a detailed roadmap for creating a modern data platform for a 200-person company.')">
+          <div class="cap-title">Engagement Roadmap</div>
+          <div class="cap-desc">Phased plan with timelines, owners, and KPIs</div>
+        </div>
+        <div class="cap-card" onclick="qp('What ML algorithms and tools should I use for predictive maintenance in manufacturing?')">
+          <div class="cap-title">Methods & Algorithms</div>
+          <div class="cap-desc">Specific techniques, tools, and frameworks by use case</div>
+        </div>
+        <div class="cap-card" onclick="qp('Help me think through a data strategy for a healthcare startup focused on personalized care.')">
+          <div class="cap-title">Brainstorm Session</div>
+          <div class="cap-desc">Open-ended exploration of problems and opportunities</div>
+        </div>
+      </div>
+    </div>`;
 }
 </script>
 </body>
